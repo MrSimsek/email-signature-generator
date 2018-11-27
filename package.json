@@ -12,7 +12,5 @@
   "dependencies": {
     "googleapis": "^27.0.0"
   },
-  "devDependencies": {
-    "ejs": "^2.6.1"
-  }
+  "devDependencies": {}
 }
