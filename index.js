@@ -1,7 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
-const ejs = require('ejs');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -67,15 +66,10 @@ function getNewToken(oAuth2Client, callback) {
   });
 }
 
-/**
- * Prints the names and majors of students in a sample spreadsheet:
- * @see https://docs.google.com/spreadsheets/d/1BsUVN5uMGwF_oUP_he1c35pDYs-gsKWc-UaPCX1W-f0/edit
- * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
- */
 function listEmployees(auth) {
   const sheets = google.sheets({version: 'v4', auth});
   sheets.spreadsheets.values.get({
-    spreadsheetId: '1BsUVN5uMGwF_oUP_he1c35pDYs-gsKWc-UaPCX1W-f0',
+    spreadsheetId: '19KclRw6o_ir8PpnEoi53p60BiAc1s8xmX_zRdmHh-bI',
     range: 'Sayfa1!A3:E',
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
@@ -84,7 +78,7 @@ function listEmployees(auth) {
       console.log('No, Name, Title, Email:');
       // Print columns A and E, which correspond to indices 0 and 4.
       rows.map((row) => {
-        //console.log(`${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}`);
+        // console.log(`${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}`);
         outputEmployeeHTML(row[0], row[1], row[2], row[3]);
       });
     } else {
