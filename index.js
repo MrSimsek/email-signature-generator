@@ -109,7 +109,7 @@ function outputEmployeeHTML(no, name, title, email) {
     }
 
     if(no !== undefined) {
-      fs.writeFile(`${signaturesDirectory}/${no}.html`, employeeHTML, 'utf8', (err) => {
+      fs.writeFile(`${signaturesDirectory}/${name}.htm`, employeeHTML, 'utf8', (err) => {
         if(err) throw err;
         console.log(`File ${no} is saved.`);
       });
